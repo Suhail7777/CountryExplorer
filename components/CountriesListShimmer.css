@@ -1,0 +1,29 @@
+.shimmer-card {
+    height: 350px;
+    background: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* shimmer layer */
+.shimmer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    height: 100%;
+    width: 150%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
