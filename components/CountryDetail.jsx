@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 
 import './CountryDetail.css'
 import { Link, useLocation, useParams } from 'react-router-dom'
-import { ThemeContext } from '../contexts/ThemeContext'
+import CountryDetailShimmer from './CountryDetailShimmer'
+import { useTheme } from '../Hooks/useTheme'
 
 export default function CountryDetail() {
-  const [isDark]= useContext(ThemeContext)
+  const [isDark]= useTheme()
   const params = useParams()
   const { state } = useLocation()
   const countryName = params.country
@@ -69,7 +70,7 @@ export default function CountryDetail() {
   }
 
   return countryData === null ? (
-    'loading...'
+    <CountryDetailShimmer />
   ) : (
     <main className={`${isDark? 'dark': ''}`}>
       <div className="country-details-container">
