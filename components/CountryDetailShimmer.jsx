@@ -1,9 +1,11 @@
 import React from 'react'
 import './CountryDetailShimmer.css'
+import { useTheme } from '../Hooks/useTheme'
 
 export default function CountryDetailShimmer() {
+  const [isDark, setIsDark] = useTheme()
   return (
-    <main>
+    <main className={`${isDark ? 'dark' : ''}`} >
       <div className="country-details-container">
         <span className="back-button shimmer-box"></span>
 

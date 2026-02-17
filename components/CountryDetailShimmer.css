@@ -1,35 +1,18 @@
 /* shimmer animation */
+main {
+  --shimmer-color: hsl(0, 0%, 78%);
+}
+
+main.dark {
+  --shimmer-color: hsl(208, 21%, 34%);
+}
 .shimmer-box {
   position: relative;
   overflow: hidden;
-  background: #e0e0e0;
+  background: var(--shimmer-color);
 }
 
-.shimmer-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  animation: shimmer 1.4s infinite;
-}
-
-@keyframes shimmer {
-  100% {
-    left: 100%;
-  }
-}
-
-/* layout shimmer shapes */
-
-.back-button {
+.back-button  {
   width: 120px;
   height: 40px;
   margin-bottom: 40px;
